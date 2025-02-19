@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demoJavaGB.model.Message;
 import com.example.demoJavaGB.service.MessageService;
 
 @Controller
@@ -26,7 +27,7 @@ public class MessageController {
 	
 	@PostMapping("/addMessage")
 	public String getMessage(Model model, @RequestParam String name) {
-		messageService.addMessage(name);
+		messageService.addMessage(new Message(name));
 		System.out.println(messageService.getAllMessages());
 		model.addAttribute("listeMessages", messageService.getAllMessages());
 		return "messagetemplate";

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demoJavaGB.model.Message;
 import com.example.demoJavaGB.repository.MessageRepository;
 
 @Service
@@ -15,11 +16,11 @@ public class MessageService {
 		this.messageRepository = messageRepository;
 	}
 	
-	public void addMessage(String s) {
-		messageRepository.addMessage(s);
+	public void addMessage(Message m) {
+		messageRepository.save(m);
 	}
 	
-	public ArrayList<String> getAllMessages(){
-		return messageRepository.getAllMessages();
+	public ArrayList<Message> getAllMessages(){
+		return (ArrayList<Message>) messageRepository.findAll();
 	}
 }

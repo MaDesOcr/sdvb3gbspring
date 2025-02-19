@@ -2,19 +2,22 @@ package com.example.demoJavaGB.repository;
 
 import java.util.ArrayList;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demoJavaGB.data.Data;
+import com.example.demoJavaGB.model.Message;
 
 @Repository
-public class MessageRepository {
+public interface MessageRepository extends JpaRepository<Message, Integer>{
 
-	public void addMessage(String s) {
-		Data.alMessage.add(s);
+	
+	/*
+	public void addMessage(Message m) {
+		Data.alMessage.add(m);
 	}
 	
-	public ArrayList<String> getAllMessages(){
+	public ArrayList<Message> getAllMessages(){
 		return Data.alMessage;
 	}
-	
+	*/
 }
